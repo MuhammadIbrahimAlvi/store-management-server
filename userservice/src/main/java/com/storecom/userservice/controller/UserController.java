@@ -2,7 +2,6 @@ package com.storecom.userservice.controller;
 
 import com.storecom.userservice.entity.User;
 import com.storecom.userservice.service.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
+    public ResponseEntity<List<User>> getAllUsers() {
         return userService.getAllUsers();
     }
 
@@ -27,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
