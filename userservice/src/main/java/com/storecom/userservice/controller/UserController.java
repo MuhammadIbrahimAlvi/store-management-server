@@ -1,13 +1,14 @@
 package com.storecom.userservice.controller;
 
 import com.storecom.userservice.entity.User;
+import com.storecom.userservice.exception.UserNotFound;
 import com.storecom.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/users")
@@ -21,8 +22,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.getUserById(id).orElseThrow(()-> new UserNotFound(id)));
     }
 
     @PostMapping
