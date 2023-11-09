@@ -1,19 +1,19 @@
 package com.storecom.userservice.service;
 
-import com.storecom.userservice.entity.User;
+import com.storecom.userservice.dto.UserRequestDto;
+import com.storecom.userservice.dto.UserResponseDto;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
-    ResponseEntity<List<User>> getAllUsers();
+    ResponseEntity<List<UserResponseDto>> getAllUsers();
 
-    Optional<User> getUserById(Long id);
+    ResponseEntity<UserResponseDto> getUserById(Long id);
 
-    ResponseEntity<User> createUser(User user);
+    ResponseEntity<UserResponseDto> createUser(UserRequestDto userRequestDto);
 
-    ResponseEntity<User> updateUser(Long id, User updatedUser);
+    ResponseEntity<UserResponseDto> updateUser(UserRequestDto userRequestDto);
 
     void deleteUser(Long id);
 }

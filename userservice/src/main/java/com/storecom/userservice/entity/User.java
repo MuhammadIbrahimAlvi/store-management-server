@@ -18,15 +18,22 @@ public class User {
     private Long id;
 
     @Column(name = "username", length = 20)
+    @NonNull
     private String name;
 
     @Column(name = "email")
+    @NonNull
     private String email;
+
+    @Column(name = "password")
+    @NonNull
+    private String password;
 
     @Column(name = "address")
     private String address;
 
     @Column(name = "city")
+    @NonNull
     private String city;
 
     @Column(name = "zip")
