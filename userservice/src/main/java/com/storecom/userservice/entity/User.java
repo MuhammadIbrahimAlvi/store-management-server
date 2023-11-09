@@ -1,7 +1,8 @@
 package com.storecom.userservice.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Builder
 @Entity
@@ -39,4 +40,12 @@ public class User {
     @Column(name = "zip")
     private String zip;
 
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

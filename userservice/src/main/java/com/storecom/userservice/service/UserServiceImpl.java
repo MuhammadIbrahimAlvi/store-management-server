@@ -7,6 +7,7 @@ import com.storecom.userservice.repository.UserRepository;
 import com.storecom.userservice.util.ConversionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private ConversionUtil conversionUtil;
 
